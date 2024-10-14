@@ -57,7 +57,7 @@ import prevIcon from "../assets/music/prev.svg";
 const Page2 = () => {
   const [isOpen, setIsOpen] = useState(null);
   const [isModel, setModel] = useState(false);
-
+  const [show,setShow] =useState(false)
   console.log(isOpen);
   const toggleVisble = (id) => {
     setIsOpen((prev) => (prev == id ? null : id));
@@ -233,7 +233,7 @@ const Page2 = () => {
           </button>
         </div>
         <div className="bg-white lg:hidden py-3 flex w-full justify-between items-center px-4 z-10">
-          <button>
+          <button onClick={() => setShow(true)}>
             <img src={menuIcon} alt="" />
           </button>
           <div className="flex gap-3 items-center">
@@ -540,6 +540,170 @@ const Page2 = () => {
             value="100"
             className="w-32 h-[2px] bg-[#312522] rounded-lg appearance-none cursor-pointer "
           />{" "}
+        </div>
+      </div>
+
+      <div
+        className={` ${
+          show
+            ? "  fixed top-0 z-20  w-72 h-screen bg-white shadow-inner px-3 pt-3 gap-5 flex flex-col transition-transform duration-300 ease-in-out   "
+            : "hidden"
+        }`}
+      >
+        <button onClick={()=>setShow(false)} className="self-end"><img src={closeRound} alt="" /></button>
+        <div className="bg-white flex items-center justify-center h-screen w-60 z-10  rounded-r-[30px] ">
+          <div className="flex flex-col gap-5">
+            <button className="flex gap-3 items-center">
+              <img src={homeIcon} alt="" /> <span className="text-">Home</span>
+            </button>
+            <button className="flex gap-3 items-center">
+              <img src={profileIcon} alt="" /> <span>Profile</span>
+            </button>{" "}
+            <button
+              onClick={() => toggleVisble(1)}
+              className="flex w-40 justify-between items-center"
+            >
+              <div className="flex gap-3 items-center">
+                <img src={vectorIcon} alt="" /> <span>Library</span>
+              </div>{" "}
+              {isOpen == 1 ? (
+                <img src={upArrowIcon} alt="" />
+              ) : (
+                <img src={downArrowIcon} alt="" />
+              )}
+            </button>
+            {isOpen == 1 && (
+              <div className="flex flex-col pl-8 -mt-4 text-[#A8A8A8]">
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon2} alt="" /> <span>Playlists</span>
+                </button>{" "}
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon} alt="" /> <span>Tracks</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={micIcon} alt="" /> <span>Artists</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon2} alt="" /> <span>Albums</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon} alt="" /> <span>Genres</span>
+                </button>{" "}
+                <button className="flex gap-2 items-center">
+                  <img src={netIcon} alt="" /> <span>Geos</span>
+                </button>
+              </div>
+            )}
+            <button
+              onClick={() => toggleVisble(2)}
+              className="flex w-40 justify-between items-center"
+            >
+              <div className="flex gap-3 items-center">
+                <img src={copyIcon} alt="" /> <span>Collection</span>
+              </div>
+              {isOpen == 2 ? (
+                <img src={upArrowIcon} alt="" />
+              ) : (
+                <img src={downArrowIcon} alt="" />
+              )}
+            </button>{" "}
+            {isOpen == 2 && (
+              <div className="flex flex-col pl-8 -mt-4 text-[#A8A8A8]">
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon2} alt="" /> <span>Playlists</span>
+                </button>{" "}
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon} alt="" /> <span>Tracks</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={micIcon} alt="" /> <span>Artists</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon2} alt="" /> <span>Albums</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon} alt="" /> <span>Genres</span>
+                </button>{" "}
+                <button className="flex gap-2 items-center">
+                  <img src={netIcon} alt="" /> <span>Geos</span>
+                </button>
+              </div>
+            )}
+            <button className="flex gap-3 items-center">
+              <img src={dotRoundIcon} alt="" /> <span>Community</span>
+            </button>
+            <button
+              onClick={() => toggleVisble(3)}
+              className="flex w-40 justify-between items-center"
+            >
+              <div className="flex gap-3 items-center">
+                <img src={radioIcon} alt="" /> <span>Stations</span>{" "}
+              </div>
+              {isOpen == 3 ? (
+                <img src={upArrowIcon} alt="" />
+              ) : (
+                <img src={downArrowIcon} alt="" />
+              )}
+            </button>{" "}
+            {isOpen == 3 && (
+              <div className="flex flex-col pl-8 -mt-4 text-[#A8A8A8]">
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon2} alt="" /> <span>Playlists</span>
+                </button>{" "}
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon} alt="" /> <span>Tracks</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={micIcon} alt="" /> <span>Artists</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon2} alt="" /> <span>Albums</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon} alt="" /> <span>Genres</span>
+                </button>{" "}
+                <button className="flex gap-2 items-center">
+                  <img src={netIcon} alt="" /> <span>Geos</span>
+                </button>
+              </div>
+            )}
+            <button
+              onClick={() => toggleVisble(4)}
+              className="flex w-40 justify-between items-center"
+            >
+              {" "}
+              <div className="flex gap-3 items-center">
+                <img src={trofyIcon} alt="" /> <span>Performance</span>
+              </div>
+              {isOpen == 4 ? (
+                <img src={upArrowIcon} alt="" />
+              ) : (
+                <img src={downArrowIcon} alt="" />
+              )}
+            </button>{" "}
+            {isOpen == 4 && (
+              <div className="flex flex-col pl-8 -mt-4 text-[#A8A8A8]">
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon2} alt="" /> <span>Playlists</span>
+                </button>{" "}
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon} alt="" /> <span>Tracks</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={micIcon} alt="" /> <span>Artists</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon2} alt="" /> <span>Albums</span>
+                </button>
+                <button className="flex gap-2 items-center">
+                  <img src={musicIcon} alt="" /> <span>Genres</span>
+                </button>{" "}
+                <button className="flex gap-2 items-center">
+                  <img src={netIcon} alt="" /> <span>Geos</span>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
       {isModel && (
